@@ -99,6 +99,23 @@ const StudentPortal = () => {
 
           <div className="card-body">
             <p>This exam contains {exam.questions.length} questions.</p>
+            
+            {/* Preview of the first question */}
+            {exam.questions.length > 0 && (
+              <div className="bg-light p-3 border rounded mb-3">
+                <h6 className="text-muted border-bottom pb-2 mb-3">Preview: Question 1</h6>
+                <p className="fw-bold">{exam.questions[0].question}</p>
+                <div className="ms-3">
+                  {exam.questions[0].options.map((option, idx) => (
+                    <div key={idx} className="form-check">
+                      <input className="form-check-input" type="radio" name="previewOption" disabled />
+                      <label className="form-check-label">{option}</label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <button className="btn btn-success">Begin Now</button>
           </div>
         </div>
